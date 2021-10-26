@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 /* Angular Dekoratorius */
@@ -9,7 +10,9 @@ import { Injectable } from '@angular/core';
 export class CharacterService {
 
   //Konstruktorius
-  constructor() {
+
+  // Injectiname angular HttpClient
+  constructor(private http: HttpClient) {
     // kolkas konstruktoriuje nedarom nieko
   }
 
@@ -17,55 +20,18 @@ export class CharacterService {
 
   // Susikureme nauja funkcija, gauti veikeju duomenims
   getCharacters() {
-      return [
-        {
-          "id": 1,
-          "name": "Rick Sanchez",
-          "status": "Alive",
-          "species": "Human",
-          "type": "",
-          "gender": "Male",
-          "origin": {
-            "name": "Earth",
-            "url": "https://rickandmortyapi.com/api/location/1"
-          },
-          "location": {
-            "name": "Earth",
-            "url": "https://rickandmortyapi.com/api/location/20"
-          },
-          "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-          "episode": [
-            "https://rickandmortyapi.com/api/episode/1",
-            "https://rickandmortyapi.com/api/episode/2",
-            // ...
-          ],
-          "url": "https://rickandmortyapi.com/api/character/1",
-          "created": "2017-11-04T18:48:46.250Z"
-        },
-        {
-          "id": 2,
-          "name": "Morty Smith",
-          "status": "Alive",
-          "species": "Human",
-          "type": "",
-          "gender": "Male",
-          "origin": {
-            "name": "Earth",
-            "url": "https://rickandmortyapi.com/api/location/1"
-          },
-          "location": {
-            "name": "Earth",
-            "url": "https://rickandmortyapi.com/api/location/20"
-          },
-          "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-          "episode": [
-            "https://rickandmortyapi.com/api/episode/1",
-            "https://rickandmortyapi.com/api/episode/2",
-          ],
-          "url": "https://rickandmortyapi.com/api/character/1",
-          "created": "2017-11-04T18:48:46.250Z"
-        }
-      ];
+      // Lokalus kintamasis, pasiekiamas tik sios funkcijos viduje
+
+      // url kintamasis, nurodo i koki API endpoint'a krepsimes
+
+      // Dokumentacija kokie duomenys grazinami:
+      // https://rickandmortyapi.com/documentation/#character-schema
+      let url = 'https://rickandmortyapi.com/api/character';
+
+      // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
+      let data = this.http.get(url);
+
+      return data;
   }
 
 

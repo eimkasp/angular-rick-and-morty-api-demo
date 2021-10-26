@@ -10,6 +10,7 @@ export class CharacterListComponent implements OnInit {
 
   // Veikeju masyvas, kurio duomenis uzpildysime is CharacterService
   public characters : any = [];
+  public charactersInfo : any = {};
 
   // "Injectiname" character service i komponenta
   constructor(private _characterService : CharacterService) {
@@ -17,10 +18,23 @@ export class CharacterListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Characters kintamajam, priskiriame duomenis is characterService getCharaters funkcijos
-    this.characters = this._characterService.getCharacters();
 
-    console.log(this.characters);
+        this._characterService.getCharacters()
+        // Subscribe funkcija naudojama dirbant su Observable tipo objektais (Angular httpClient visada grazina Observabile tipa)
+        // data - kintamasis su grazintais duomenimis is musu uzklausos
+        .subscribe((data : any) => {
+          // Gautus duomenis priskiriame komponento kintamajam
+          // Characters kintamajam, priskiriame duomenis is characterService getCharaters funkcijos
+
+          this.characters = data.results;
+          this.charactersInfo = data.info;
+          /*
+          Dokumentacija kokie duomenys grazinami:
+          https://rickandmortyapi.com/documentation/#character-schema
+          */
+
+        } );
+
 
   }
 
