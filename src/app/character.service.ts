@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 /* Angular Dekoratorius */
 @Injectable({
   providedIn: 'root'
@@ -9,9 +8,14 @@ import { Injectable } from '@angular/core';
 /* Service tipo klases atsakingos uz darba su duomenimis */
 export class CharacterService {
 
-  //
-  constructor() { }
+  //Konstruktorius
+  constructor() {
+    // kolkas konstruktoriuje nedarom nieko
+  }
 
+  // Klases metodai/funkcijos
+
+  // Susikureme nauja funkcija, gauti veikeju duomenims
   getCharacters() {
       return [
         {
@@ -39,7 +43,7 @@ export class CharacterService {
           "created": "2017-11-04T18:48:46.250Z"
         },
         {
-          "id": 1,
+          "id": 2,
           "name": "Morty Smith",
           "status": "Alive",
           "species": "Human",
@@ -63,5 +67,6 @@ export class CharacterService {
         }
       ];
   }
+
 
 }
