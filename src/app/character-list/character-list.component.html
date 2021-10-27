@@ -14,17 +14,24 @@
   <div class="row mb-3">
     <div class="col-6">
       <small>Veikeju Kiekis: {{ charactersInfo.count }}</small>
-
+      <div>
+        <!-- Atvaizduoti dabar perziurima puslapi -->
+        Current page: {{ page }} / {{ charactersInfo.pages }}
+      </div>
     </div>
 
     <div class="col-6 text-end">
       <!-- Angular click event example -->
+      <!-- Papildomai prideti mygtuka atgal, rodyti ji tik tada kai page kintamasis yra daugiau uz 1 -->
+      <button class="btn btn-secondary ml-3" (click)="previousPage()">
+        Previous Page
+      </button>
+
       <!-- NExt Page button -->
       <button class="btn btn-secondary" (click)="nextPage()">
         Next Page
       </button>
 
-      <!-- Papildomai prideti mygtuka atgal, rodyti ji tik tada kai page kintamasis yra daugiau uz 1 -->
 
     </div>
   </div>
@@ -49,4 +56,3 @@
     </div>
   </div>
 </div>
-

@@ -52,4 +52,16 @@ export class CharacterListComponent implements OnInit {
     this.getCharacters();
   }
 
+  previousPage() {
+
+    // Patikriname ar page reiksme nera neigiama, -1 puslapio nera
+    if(this.page > 1) {
+      this.page--;
+    }
+
+
+    // Iskvieciame characters service atnaujinti duomenis
+    this.getCharacters();
+  }
+
 }
