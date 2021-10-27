@@ -19,9 +19,13 @@
 
     <div class="col-6 text-end">
       <!-- Angular click event example -->
+      <!-- NExt Page button -->
       <button class="btn btn-secondary" (click)="nextPage()">
         Next Page
       </button>
+
+      <!-- Papildomai prideti mygtuka atgal, rodyti ji tik tada kai page kintamasis yra daugiau uz 1 -->
+
     </div>
   </div>
 
@@ -32,7 +36,7 @@
       </div>
       <div class="card-body">
         <div>
-          <img [src]="character.image" [alt]="character.name" />
+          <img [src]="character.image" [alt]="character.name" class="img-fluid" />
         </div>
       </div>
 
