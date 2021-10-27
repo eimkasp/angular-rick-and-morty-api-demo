@@ -9,33 +9,47 @@ import { CharacterService } from '../character.service';
 export class CharacterListComponent implements OnInit {
 
   // Veikeju masyvas, kurio duomenis uzpildysime is CharacterService
-  public characters : any = [];
-  public charactersInfo : any = {};
+  public characters: any = [];
+  public charactersInfo: any = {};
+
+  public page: number = 1;
 
   // "Injectiname" character service i komponenta
-  constructor(private _characterService : CharacterService) {
+  constructor(private _characterService: CharacterService) {
 
   }
 
   ngOnInit(): void {
+      this.getCharacters();
+  }
 
-        this._characterService.getCharacters()
-        // Subscribe funkcija naudojama dirbant su Observable tipo objektais (Angular httpClient visada grazina Observabile tipa)
-        // data - kintamasis su grazintais duomenimis is musu uzklausos
-        .subscribe((data : any) => {
-          // Gautus duomenis priskiriame komponento kintamajam
-          // Characters kintamajam, priskiriame duomenis is characterService getCharaters funkcijos
+  getCharacters() {
+    this._characterService.getCharacters(this.page)
+    // Subscribe funkcija naudojama dirbant su Observable tipo objektais (Angular httpClient visada grazina Observabile tipa)
+    // data - kintamasis su grazintais duomenimis is musu uzklausos
+    .subscribe((data: any) => {
+      // Gautus duomenis priskiriame komponento kintamajam
+      // Characters kintamajam, priskiriame duomenis is characterService getCharaters funkcijos
 
-          this.characters = data.results;
-          this.charactersInfo = data.info;
-          /*
-          Dokumentacija kokie duomenys grazinami:
-          https://rickandmortyapi.com/documentation/#character-schema
-          */
+      this.characters = data.results;
+      this.charactersInfo = data.info;
+      /*
+      Dokumentacija kokie duomenys grazinami:
+      https://rickandmortyapi.com/documentation/#character-schema
+      */
 
-        } );
+    });
+  }
 
+  nextPage() {
+    // alert("Kitas puslapis veiks jau netrukus");
+    // Pridedame vieneta
+    this.page++;
 
+    console.log("Next page:");
+    console.log(this.page);
+
+    this.getCharacters();
   }
 
 }
