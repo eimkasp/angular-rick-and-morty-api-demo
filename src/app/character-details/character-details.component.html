@@ -1,4 +1,7 @@
-<div class="row">
+<div class="row"  *ngIf="character">
+  <!-- Patikriname ar character informacija jau uzkrauta
+    API Requestas uztrunka ilgiau nei html atvaizdavimas
+  -->
   <div class="col-8">
     <!-- TODO:  -->
     <a routerLink="/">< Back</a>
@@ -50,3 +53,6 @@
     </ul>
   </div>
 </div>
+
+<!-- Jei character kintamasis neturi reiksmes (ji dar neatkeliavo is api uzklausos) rodome loading elementa -->
+<div class="loader w-100 text-center mt-3" *ngIf="character == undefined">Loading....</div>
