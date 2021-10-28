@@ -24,6 +24,7 @@ export class CharacterListComponent implements OnInit {
   }
 
   getCharacters() {
+
     this._characterService.getCharacters(this.page)
     // Subscribe funkcija naudojama dirbant su Observable tipo objektais (Angular httpClient visada grazina Observabile tipa)
     // data - kintamasis su grazintais duomenimis is musu uzklausos

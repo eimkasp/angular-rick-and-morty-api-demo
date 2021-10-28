@@ -1,1 +1,18 @@
-<p>character-details works!</p>
+<div class="row">
+  <div class="col-8">
+      <h1>{{ character.name }}</h1>
+      <!-- Nuorodos i isorinius tinklapius, dazniausiai turi buti target="_blank" -->
+      <small>Data from: <a href="{{ character.url }}" target="_blank">RickAndMortyApi.com</a></small>
+
+      <hr>
+      <h2>Character Details</h2>
+  </div>
+  <div class="col-4">
+
+    <img src="{{ character.image }}" [alt]="character.name" class="img-fluid" />
+
+    <ul>
+      <li>Location: {{ character.location.name }}</li>
+    </ul>
+  </div>
+</div>

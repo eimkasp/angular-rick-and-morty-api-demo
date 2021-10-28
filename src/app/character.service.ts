@@ -26,24 +26,20 @@ export class CharacterService {
     page - Klaustukas gale nurodo, kad sitas parametras nera privalomas
     : number - nurodo tipa, kad tai turi buti skaicius
   */
-  getCharacters(page: number) {
+  getCharacters(page: number, name? : string) {
     console.log("Page parametras");
     console.log(page);
     // Lokalus kintamasis, pasiekiamas tik sios funkcijos viduje
-
     // url kintamasis, nurodo i koki API endpoint'a krepsimes
-
     // Dokumentacija kokie duomenys grazinami:
     // https://rickandmortyapi.com/documentation/#character-schema
     let url: string = 'https://rickandmortyapi.com/api/character';
-
     // Sukuriamas angular Http Parametru objektas
     let params = new HttpParams();
-
-
     // Jei http Parametru objektas jau sukurtas, naudoti append funkcija prideti papildomiems parametrams
     // Pries siunciant uzklausa
     params = params.append('page', page);
+    params = params.append('name', 'rick');
 
     console.log("API Uzklausa:");
     console.log(url);
@@ -52,5 +48,9 @@ export class CharacterService {
     let data = this.http.get(url, {params});
 
     return data;
+  }
+
+  getCharaterByName() {
+
   }
 }
