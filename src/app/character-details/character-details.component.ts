@@ -27,7 +27,7 @@ export class CharacterDetailsComponent implements OnInit {
     // https://medium.com/@tiboprea/accessing-url-parameters-in-angular-snapshot-vs-subscription-efc4e70f9053
 
     /* TODO: 2 (skaicius) turetu buti gaunamas dinamiskai pagal route'o parametra */
-    this._characterService.getCharater(this.id).subscribe(data => {
+    this._characterService.getCharacter(this.id).subscribe(data => {
       // Kokius duomenis gaunu?
       console.log("Veikejo duomenys is API:")
       console.log(data);

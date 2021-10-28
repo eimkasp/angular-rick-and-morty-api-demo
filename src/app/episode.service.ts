@@ -21,4 +21,8 @@ export class EpisodeService {
 
     return data;
   }
+
+  getEpisodeById(id : number) {
+
+  }
 }

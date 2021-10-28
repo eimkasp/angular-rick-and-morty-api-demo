@@ -54,7 +54,8 @@ export class CharacterService {
   }
 
 
-  getCharater(id: string | null) {
+  /* TODO: Kaip atvaizduoti klaida, jei API grazina klaidinga atsakyma */
+  getCharacter(id: string | null) {
     let data = this.http.get(this.url + "/" + id);
 
     return data;
