@@ -9,12 +9,12 @@ import { EpisodeService } from '../episode.service';
 export class CharacterEpisodesListComponent implements OnInit {
 
   @Input() character : any; // decorate the property with @Input()
+  public episodes = {};
 
   constructor(private _episodeService: EpisodeService) { }
 
   ngOnInit(): void {
-    console.log("Character Episode List Component Duomenys");
-    console.log(this.character);
+
   }
 
 }
