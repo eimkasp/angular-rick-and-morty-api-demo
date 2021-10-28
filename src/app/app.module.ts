@@ -15,13 +15,15 @@ import { HeaderComponent } from './header/header.component';
 
 
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import { CharacterEpisodesListComponent } from './character-episodes-list/character-episodes-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterListComponent,
     CharacterDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    CharacterEpisodesListComponent
   ],
   imports: [
     BrowserModule,
