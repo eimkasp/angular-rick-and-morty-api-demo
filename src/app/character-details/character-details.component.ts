@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterService } from '../character.service';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-character-details',
@@ -8,36 +10,32 @@ import { Component, OnInit } from '@angular/core';
 export class CharacterDetailsComponent implements OnInit {
 
   // Character Informacijos objektas
-  public character : any;
+  public character: any;
 
-  constructor() { }
+  // Reiksme gali buti string arba null, pagal grazinama is funkcijos this.route.snapshot.paramMap.get("id");
+  private id : string | null;
+
+  // "Injectiname" character service i komponenta
+  constructor(private route: ActivatedRoute, private _characterService: CharacterService) {
+    this.id = this.route.snapshot.paramMap.get("id");
+  }
 
   ngOnInit(): void {
-    /* TODO: Gauti duomenis per service */
-    this.character = {
-      "id": 2,
-      "name": "Morty Smith",
-      "status": "Alive",
-      "species": "Human",
-      "type": "",
-      "gender": "Male",
-      "origin": {
-        "name": "Earth",
-        "url": "https://rickandmortyapi.com/api/location/1"
-      },
-      "location": {
-        "name": "Earth",
-        "url": "https://rickandmortyapi.com/api/location/20"
-      },
-      "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-      "episode": [
-        "https://rickandmortyapi.com/api/episode/1",
-        "https://rickandmortyapi.com/api/episode/2",
-        // ...
-      ],
-      "url": "https://rickandmortyapi.com/api/character/2",
-      "created": "2017-11-04T18:50:21.651Z"
-    };
+
+    // Gauname route parametra /products/:id
+    // Pasiskaitymui apie skirtingus budus gauti parametrus:
+    // https://medium.com/@tiboprea/accessing-url-parameters-in-angular-snapshot-vs-subscription-efc4e70f9053
+
+    /* TODO: 2 (skaicius) turetu buti gaunamas dinamiskai pagal route'o parametra */
+    this._characterService.getCharater(this.id).subscribe(data => {
+      // Kokius duomenis gaunu?
+      console.log("Veikejo duomenys is API:")
+      console.log(data);
+
+      // Priskiriame duomenis is API
+      // Komponento kintamajam character
+      this.character = data;
+    });
   }
 
 }

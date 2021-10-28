@@ -10,6 +10,13 @@ import { Injectable } from '@angular/core';
 export class CharacterService {
 
   //Konstruktorius
+  // Objekto klases kintamasis, pasiekiamas visoje klaseje
+  // url kintamasis, nurodo i koki API endpoint'a krepsimes
+  // Dokumentacija kokie duomenys grazinami:
+  // https://rickandmortyapi.com/documentation/#character-schema
+  private url: string = 'https://rickandmortyapi.com/api/character';
+  // Iskeltas kintamasis, nes ji naudosime skritingose funkcijose,
+  // character service api visada prasideda: 'https://rickandmortyapi.com/api/character'
 
   // Injectiname angular HttpClient
   constructor(private http: HttpClient) {
@@ -26,14 +33,10 @@ export class CharacterService {
     page - Klaustukas gale nurodo, kad sitas parametras nera privalomas
     : number - nurodo tipa, kad tai turi buti skaicius
   */
-  getCharacters(page: number, name? : string) {
+  getCharacters(page: number, name?: string) {
     console.log("Page parametras");
     console.log(page);
-    // Lokalus kintamasis, pasiekiamas tik sios funkcijos viduje
-    // url kintamasis, nurodo i koki API endpoint'a krepsimes
-    // Dokumentacija kokie duomenys grazinami:
-    // https://rickandmortyapi.com/documentation/#character-schema
-    let url: string = 'https://rickandmortyapi.com/api/character';
+
     // Sukuriamas angular Http Parametru objektas
     let params = new HttpParams();
     // Jei http Parametru objektas jau sukurtas, naudoti append funkcija prideti papildomiems parametrams
@@ -42,15 +45,18 @@ export class CharacterService {
     params = params.append('name', 'rick');
 
     console.log("API Uzklausa:");
-    console.log(url);
+    console.log(this.url);
 
     // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
-    let data = this.http.get(url, {params});
+    let data = this.http.get(this.url, { params });
 
     return data;
   }
 
-  getCharaterByName() {
 
+  getCharater(id: string | null) {
+    let data = this.http.get(this.url + "/" + id);
+
+    return data;
   }
 }
