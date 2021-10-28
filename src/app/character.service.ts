@@ -42,7 +42,6 @@ export class CharacterService {
     // Jei http Parametru objektas jau sukurtas, naudoti append funkcija prideti papildomiems parametrams
     // Pries siunciant uzklausa
     params = params.append('page', page);
-    params = params.append('name', 'rick');
 
     console.log("API Uzklausa:");
     console.log(this.url);
