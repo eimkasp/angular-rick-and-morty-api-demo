@@ -7,6 +7,7 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: './character-details.component.html',
   styleUrls: ['./character-details.component.scss']
 })
+
 export class CharacterDetailsComponent implements OnInit {
 
   // Character Informacijos objektas
