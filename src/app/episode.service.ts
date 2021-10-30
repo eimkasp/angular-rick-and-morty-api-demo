@@ -8,6 +8,10 @@ export class EpisodeService {
 
   constructor(private http: HttpClient) { }
 
+  /* Funkcija gauti visiems epizodams */
+  getEpisodes() {
+
+  }
 
   // Kadangi informacija is character dalies grazinama, kaip pilnas uzklausos url:
   // PVZ: 'https://rickandmortyapi.com/api/episode/1'
@@ -22,6 +26,7 @@ export class EpisodeService {
     return data;
   }
 
+  // Atskira funkcija episodo gavimui pagal ID
   getEpisodeById(id : number) {
 
   }
