@@ -21,6 +21,7 @@ export class EpisodeCardComponent implements OnInit {
     console.log(this.episode);
 
 
+
     this._episodeService.getEpisodeByUrl(this.episodeUrl).subscribe(data => {
       this.episode = data;
       console.log(this.episode);

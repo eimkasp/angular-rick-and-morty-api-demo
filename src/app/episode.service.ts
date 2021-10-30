@@ -1,12 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+// Importuojame environment (aplinkos) kintamuosius
+import { environment as env } from './../environments/environment';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class EpisodeService {
 
   constructor(private http: HttpClient) { }
+
+
+  // Pridedame prie bazinio API URL episode dali
+  private url: string = env.API_URL + '/episode';
 
   /* Funkcija gauti visiems epizodams */
   getEpisodes() {
