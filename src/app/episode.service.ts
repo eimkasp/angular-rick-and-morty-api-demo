@@ -28,8 +28,14 @@ export class EpisodeService {
 
 
   // Atskira funkcija episodo gavimui pagal ID
-  getEpisodeById(id: number) {
+  getEpisode(id: string | null) {
 
+
+    // sita eilute sugeneruos uzklausa i url, kaip pvz:
+    // https://rickandmortyapi.com/api/episode/1
+    let data = this.http.get(this.url + "/" + id);
+
+    return data;
   }
 
 
