@@ -39,4 +39,8 @@ export class CharacterDetailsComponent implements OnInit {
     });
   }
 
+  test() {
+    console.log("Test Function");
+  }
+
 }
