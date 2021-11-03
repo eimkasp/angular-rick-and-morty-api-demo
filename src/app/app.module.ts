@@ -18,6 +18,7 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { CharacterEpisodesListComponent } from './character-episodes-list/character-episodes-list.component';
 import { EpisodeCardComponent } from './episode-card/episode-card.component';
 import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.component';
+import { SearchFormComponent } from './header/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.co
     HeaderComponent,
     CharacterEpisodesListComponent,
     EpisodeCardComponent,
-    EpisodesListComponent
+    EpisodesListComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,

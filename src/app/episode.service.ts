@@ -18,8 +18,17 @@ export class EpisodeService {
 
   /* Funkcija gauti visiems epizodams */
   getEpisodes() {
+    console.log("getEpisodes Funkcija")
+    return "labas";
+  }
+
+
+
+  // Atskira funkcija episodo gavimui pagal ID
+  getEpisodeById(id : number) {
 
   }
+
 
   // Kadangi informacija is character dalies grazinama, kaip pilnas uzklausos url:
   // PVZ: 'https://rickandmortyapi.com/api/episode/1'
@@ -27,15 +36,10 @@ export class EpisodeService {
   // epizodo informacija pagal url, url bus atsiunciamas kaip parametras
   getEpisodeByUrl(url : string) {
 
-    console.log("Episode service API URL");
-    console.log(url);
+    // console.log("Episode service API URL");
+    // console.log(url);
     let data = this.http.get(url);
 
     return data;
-  }
-
-  // Atskira funkcija episodo gavimui pagal ID
-  getEpisodeById(id : number) {
-
   }
 }
