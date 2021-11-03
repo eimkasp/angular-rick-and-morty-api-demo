@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Episode } from 'src/app/episode';
 import { EpisodeService } from 'src/app/episode.service';
 
 @Component({
@@ -8,12 +9,19 @@ import { EpisodeService } from 'src/app/episode.service';
 })
 export class EpisodesListComponent implements OnInit {
 
-  public episodes : any;
+
+  // ? - klaustukas reiskia, kad sitas kintamasis nera privalomas
+  public episodes? : Episode[];
 
   constructor(private _episodeService: EpisodeService) { }
 
   ngOnInit(): void {
-    this._episodeService.getEpisodes();
+    this._episodeService.getEpisodes().subscribe((data : any) => {
+      this.episodes = data.results;
+
+      //console.log("Episodes duomenys is Service: ")
+      //console.log(this.episodes);
+    });
   }
 
 }
