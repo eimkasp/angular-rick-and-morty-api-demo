@@ -8,6 +8,17 @@
   <p>
     {{ episode.air_date }}
   </p>
+
+  <h3>
+    Epizodo Veikejai:
+  </h3>
+  <ul>
+    <li *ngFor="let character of episode.characters">
+      <a href="{{ character }}" target="_blank">
+        {{ character }}
+      </a>
+    </li>
+  </ul>
 </div>
 
 
