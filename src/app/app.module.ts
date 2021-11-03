@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { CharacterEpisodesListComponent } from './character-episodes-list/character-episodes-list.component';
 import { EpisodeCardComponent } from './episode-card/episode-card.component';
+import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EpisodeCardComponent } from './episode-card/episode-card.component';
     CharacterDetailsComponent,
     HeaderComponent,
     CharacterEpisodesListComponent,
-    EpisodeCardComponent
+    EpisodeCardComponent,
+    EpisodesListComponent
   ],
   imports: [
     BrowserModule,
