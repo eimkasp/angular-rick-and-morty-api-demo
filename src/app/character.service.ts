@@ -1,5 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Character } from 'src/Character';
 
 /* Angular Dekoratorius */
 @Injectable({
@@ -33,7 +35,7 @@ export class CharacterService {
     page - Klaustukas gale nurodo, kad sitas parametras nera privalomas
     : number - nurodo tipa, kad tai turi buti skaicius
   */
-  getCharacters(page: number, name?: string) {
+  getCharacters(page: number, name?: string): Observable<Character[]> {
     console.log("Page parametras");
     console.log(page);
 
@@ -47,7 +49,7 @@ export class CharacterService {
     console.log(this.url);
 
     // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
-    let data = this.http.get(this.url, { params });
+    let data = this.http.get<Character[]>(this.url, { params });
 
     return data;
   }

@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
 // Importuojame environment (aplinkos) kintamuosius
 import { environment as env } from './../environments/environment';
 
+interface Episode  {
+  name : string,
+  id: number,
+}
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +33,7 @@ export class EpisodeService {
 
     console.log("Episode service API URL");
     console.log(url);
-    let data = this.http.get(url);
+    let data = this.http.get<Episode[]>(url);
 
     return data;
   }

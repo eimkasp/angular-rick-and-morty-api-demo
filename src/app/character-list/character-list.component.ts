@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/Character';
 import { CharacterService } from '../character.service';
+import { Observable } from 'rxjs';
+
+
+interface CharacterRequest {
+  info : Object,
+  results : Character[]
+}
 
 @Component({
   selector: 'app-character-list',
@@ -9,9 +17,8 @@ import { CharacterService } from '../character.service';
 export class CharacterListComponent implements OnInit {
 
   // Veikeju masyvas, kurio duomenis uzpildysime is CharacterService
-  public characters: any = [];
+  public characters?: Character[];
   public charactersInfo: any = {};
-
   public page: number = 1;
 
   // "Injectiname" character service i komponenta
