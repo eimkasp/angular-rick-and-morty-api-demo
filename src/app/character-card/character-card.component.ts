@@ -19,7 +19,7 @@ export class CharacterCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.character);
+    // console.log(this.character);
   }
 
 }

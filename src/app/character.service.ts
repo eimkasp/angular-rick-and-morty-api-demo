@@ -57,6 +57,8 @@ export class CharacterService {
 
 
   /* TODO: Kaip atvaizduoti klaida, jei API grazina klaidinga atsakyma */
+
+  // id - 1,183
   getCharacter(id: string | null) {
     let data = this.http.get(this.url + "/" + id);
 

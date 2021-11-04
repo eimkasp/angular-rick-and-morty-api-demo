@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Episode } from 'src/app/episode';
 import { EpisodeService } from 'src/app/episode.service';
+import { CharacterService } from 'src/app/character.service';
 
 @Component({
   selector: 'app-episode-details',
@@ -15,19 +16,68 @@ export class EpisodeDetailsComponent implements OnInit {
   // Neprivalomas kintamasis, duomenis gausime is episode service
   public episode? : Episode;
 
-  public characters : any;
+  // Į šį kintamajį, išsaugosime visų veikėjų duomenis
+  public characters : [] = [];
 
-  constructor(private route: ActivatedRoute, private _episodeService : EpisodeService) {
+  // I si masyva, issaugosime visu reikalingu veikeju ID
+  private charactersIds : any = [];
 
+  constructor(private route: ActivatedRoute,
+    private _episodeService : EpisodeService,
+    private _characterService : CharacterService
+    ) {
     // Gauname route'o /episodes/:id parametra (id)
     this.id = this.route.snapshot.paramMap.get("id");
   }
 
   ngOnInit(): void {
-    this._episodeService.getEpisode(this.id).subscribe((data : any) => {
+
+    // Asinchroninė funkcija
+
+    // 1. Išsiunčiama užklausa duomenims gauti
+    this._episodeService.getEpisode(this.id).subscribe(
+      // Javascript callback dalis, ivykdoma, kai gaunami is api
+      (data : any) => {
+      //2. Ivykdomas callback gavus duomenis is api
       this.episode = data;
       console.log(this.episode);
-    })
+
+      // 3. BUTINAI SUBSCRIBE FUNKCIJOS CALLBACK Viduje
+      // Gauname veikėjų duomenis
+      this.getCharacters();
+    });
+
+
+  }
+
+  getCharacters() {
+    // Patikriname ar episodo kintamasis turi duomenis
+    if(this.episode) {
+
+      // Pereiname per visus episodu veikeju masyvo elementus
+      for(let i = 0; i < this.episode.characters.length; i++) {
+
+        /*
+        this.episode.characters[i] - string
+        elemento reikes pvz: https://rickandmortyapi.com/api/character/435
+         */
+        let temp : string = this.episode.characters[i].replace("https://rickandmortyapi.com/api/character/", "");
+
+        // Suformatuojame character ID is url temp kintamajame
+        // console.log("this.episode.characters[i]: " + this.episode.characters[i]);
+        // console.log("i: " + i);
+        // console.log("temp: " + temp);
+
+        this.charactersIds.push(temp);
+        console.log(this.charactersIds.toString());
+      }
+
+      /* BUTINAI UZ CIKLO RIBU: */
+      // Isvkviesti service gauti veikeju duomenims
+      this._characterService.getCharacter(this.charactersIds).subscribe((data: any) => {
+          this.characters = data;
+      });
+    }
   }
 
 }
