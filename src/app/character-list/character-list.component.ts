@@ -34,6 +34,7 @@ export class CharacterListComponent implements OnInit {
 
       this.characters = data.results;
       this.charactersInfo = data.info;
+      // console.log(data);
       /*
       Dokumentacija kokie duomenys grazinami:
       https://rickandmortyapi.com/documentation/#character-schema

@@ -14,6 +14,7 @@
   </h3>
   <ul>
     <li *ngFor="let character of episode.characters">
+      <app-character-card [character]="character"></app-character-card>
       <a href="{{ character }}" target="_blank">
         {{ character }}
       </a>

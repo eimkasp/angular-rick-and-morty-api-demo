@@ -15,6 +15,8 @@ export class EpisodeDetailsComponent implements OnInit {
   // Neprivalomas kintamasis, duomenis gausime is episode service
   public episode? : Episode;
 
+  public characters : any;
+
   constructor(private route: ActivatedRoute, private _episodeService : EpisodeService) {
 
     // Gauname route'o /episodes/:id parametra (id)

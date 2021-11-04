@@ -35,28 +35,15 @@
       <button class="btn btn-secondary" (click)="nextPage()">
         Next Page
       </button>
-
-
     </div>
   </div>
 
   <div class="col-sm-4 mb-3" *ngFor="let character of characters">
-    <div class="card" routerLink="character/{{ character.id }}">
-      <div class="card-header">
-        <h3>{{ character.name }}</h3>
-      </div>
-      <div class="card-body">
-        <div>
-          <img [src]="character.image" [alt]="character.name" class="img-fluid" />
-        </div>
-      </div>
-
-      <div class="card-footer">
-        <!-- Veliau cia pridesime papildomu mygtuku -->
-        <button class="btn btn-primary">Button</button>
-      </div>
-
-      <hr>
-    </div>
+    <!-- [character] - @Input() kintamasis app-character-card.component.ts faile
+          ="character" - kintamasi/duomenys, kurie siuo atveju rodo i lokalu ciklo kintamaji
+          *ngFor="let character of characters"
+    -->
+    <!-- Pakeisime i <app-character-card [character]="character"> -->
+    <app-character-card [character]="character"></app-character-card>
   </div>
 </div>

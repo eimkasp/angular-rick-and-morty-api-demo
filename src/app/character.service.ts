@@ -1,3 +1,4 @@
+/* HTTP Kliento panaudojimo pavyzdziai: https://blog.angular-university.io/angular-http/  */
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -47,6 +48,8 @@ export class CharacterService {
     console.log(this.url);
 
     // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
+
+    /* HTTP Kliento panaudojimo pavyzdziai: https://blog.angular-university.io/angular-http/  */
     let data = this.http.get(this.url, { params });
 
     return data;
