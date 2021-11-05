@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterDetailsComponent } from './character-details/character-details.component';
-import { CharacterListComponent } from './character-list/character-list.component';
-import { EpisodeDetailsComponent } from './episodes/episode-details/episode-details.component';
-import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.component';
+import { CharacterDetailsComponent } from './components/characters/character-details/character-details.component';
+import { CharacterListComponent } from './components/characters/character-list/character-list.component';
+import { EpisodeDetailsComponent } from './components/episodes/episode-details/episode-details.component';
+import { EpisodesListComponent } from './components/episodes/episodes-list/episodes-list.component';
 
 const routes: Routes = [
   { path: '', component: CharacterListComponent },
