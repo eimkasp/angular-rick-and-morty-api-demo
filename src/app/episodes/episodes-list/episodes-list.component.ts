@@ -24,4 +24,13 @@ export class EpisodesListComponent implements OnInit {
     });
   }
 
+  nextPage() {
+    this._episodeService.getEpisodes().subscribe((data : any) => {
+      this.episodes = data.results;
+
+      //console.log("Episodes duomenys is Service: ")
+      //console.log(this.episodes);
+    });
+  }
+
 }

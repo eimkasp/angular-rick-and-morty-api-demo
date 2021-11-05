@@ -20,6 +20,7 @@ import { EpisodeCardComponent } from './episode-card/episode-card.component';
 import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.component';
 import { SearchFormComponent } from './header/search-form/search-form.component';
 import { EpisodeDetailsComponent } from './episodes/episode-details/episode-details.component';
+import { CharacterCardComponent } from './character-card/character-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EpisodeDetailsComponent } from './episodes/episode-details/episode-deta
     EpisodeCardComponent,
     EpisodesListComponent,
     SearchFormComponent,
-    EpisodeDetailsComponent
+    EpisodeDetailsComponent,
+    CharacterCardComponent
   ],
   imports: [
     BrowserModule,
