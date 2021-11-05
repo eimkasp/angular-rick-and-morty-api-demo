@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterService } from '../character.service';
+import { CharacterService } from '../../../services/character.service';
 
 @Component({
   selector: 'app-character-list',
@@ -44,9 +44,13 @@ export class CharacterListComponent implements OnInit {
   }
 
   nextPage() {
-    // alert("Kitas puslapis veiks jau netrukus");
-    // Pridedame vieneta
-    this.page++;
+
+    // Pridedame vieneta jei puslapio skaicius yra mazesnis uz bendra puslapiu kieki
+    if(this.page < this.charactersInfo.pages) {
+      this.page++;
+    } else {
+      alert("This is a last page");
+    }
 
     console.log("Next page:");
     console.log(this.page);

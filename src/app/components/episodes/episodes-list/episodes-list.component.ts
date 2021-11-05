@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Episode } from 'src/app/episode';
-import { EpisodeService } from 'src/app/episode.service';
+import { Episode } from 'src/app/interfaces/episode';
+import { EpisodeService } from 'src/app/services/episode.service';
 
 @Component({
   selector: 'app-episodes-list',
