@@ -1,15 +1,27 @@
-<form class="d-flex input-group w-auto">
-  <input
-    type="search"
-    class="form-control"
-    placeholder="Type Character Name"
-    aria-label="Search"
-  />
-  <button
-    class="btn btn-outline-primary"
-    type="button"
-    data-mdb-ripple-color="dark"
-  >
-    Search
-  </button>
+<!-- (ngSubmit) - Event'as kai pateikiama forma
+(ngSubmit)="searchFromSubmit()"
+(ngSubmit) - event pavadinimas - pvz (click) arba (hover)
+searchFromSubmit() - funkcijos pavadinimas , komponente, kuri bus kvieciama, pateikus forma
+-->
+
+<form class="d-flex input-group w-auto" (ngSubmit)="searchFormSubmit()">
+
+  <!-- Norint naudoti [(ngModel)] - butina importuoti
+    i app.module.ts  - FormsModule
+    import { FormsModule } from '@angular/forms';
+      ir prideti prie:
+    imports: [
+    ....,
+    FormsModule
+  ],
+    -->
+  <input type="text" class="form-control" placeholder="Type Character Name" aria-label="Search" name="searchString"
+    [(ngModel)]="searchString"
+
+    />
+  <input type="submit" value="Search" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+
 </form>
+<div>
+  You are searching for: {{ searchString }}
+</div>

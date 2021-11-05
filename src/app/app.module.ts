@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -40,7 +41,8 @@ import { CharacterCardComponent } from './components/characters/character-card/c
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MdbCollapseModule
+    MdbCollapseModule,
+    FormsModule
   ],
   // Duomenu tiekejai
   providers: [
