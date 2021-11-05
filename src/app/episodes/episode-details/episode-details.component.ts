@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Episode } from 'src/app/episode';
-import { EpisodeService } from 'src/app/episode.service';
-import { CharacterService } from 'src/app/character.service';
+import { Episode } from 'src/app/interfaces/episode';
+import { EpisodeService } from 'src/app/services/episode.service';
+import { CharacterService } from 'src/app/services/character.service';
 
 @Component({
   selector: 'app-episode-details',

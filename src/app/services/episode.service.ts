@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 // Importuojame environment (aplinkos) kintamuosius
-import { environment as env } from './../environments/environment';
-import { Episode } from './episode';
+import { environment as env } from '../../environments/environment';
+import { Episode } from '../interfaces/episode';
 
 
 @Injectable({

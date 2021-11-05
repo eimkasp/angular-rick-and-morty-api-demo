@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
-import { CharacterService } from './character.service';
+import { CharacterService } from './services/character.service';
 
 
 import { HttpClientModule } from '@angular/common/http';
