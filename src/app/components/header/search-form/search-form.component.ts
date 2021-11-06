@@ -35,4 +35,8 @@ export class SearchFormComponent implements OnInit {
     // alert("You are searching for" + this.searchString);
   }
 
+  statusChange(value : any) {
+    alert("Status has changed");
+  }
+
 }

@@ -15,11 +15,18 @@ searchFromSubmit() - funkcijos pavadinimas , komponente, kuri bus kvieciama, pat
     FormsModule
   ],
     -->
-  <input type="text" class="form-control" placeholder="Type Character Name" aria-label="Search" name="searchString"
-    [(ngModel)]="searchString" />
+    <!-- (change) - event'as kuris suveikia kiekvieno laukelio pakeitimo metu -->
+    <!-- (keyup) - event'as kuris suveikia kiekvieno mygtuko paspaudimo metu -->
+  <input type="text" class="form-control"
+  [(ngModel)]="searchString"
+  (change)="searchFormSubmit()"
+  (keyup)="searchFormSubmit()"
+  (keydown)="searchFormSubmit()"
+  placeholder="Type Character Name" aria-label="Search" name="searchString"
+  />
 
   <!-- Elementas filtravimui pagal status -->
-  <select name="status">
+  <select name="status" (change)="statusChange($event)">
     <option value="all">Status: All</option>
     <option value="alive">Alive</option>
     <option value="dead">Dead</option>
