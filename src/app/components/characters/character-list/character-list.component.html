@@ -20,7 +20,7 @@
     <app-search-form (onFormSubmit)="filterCharacters($event)"></app-search-form>
   </div>
 
-  <div class="row mb-3">
+  <div class="row mb-3" *ngIf="charactersInfo.count > 0">
 
     <div class="col-6">
       <small>Veikeju Kiekis: {{ charactersInfo.count }}</small>
@@ -42,6 +42,11 @@
         Next Page
       </button>
     </div>
+  </div>
+
+  <div class="row mb-3" *ngIf="charactersInfo.count == 0">
+    <h1>Opps Nothing found. </h1>
+    <p>You have searched for: <strong>{{ searchOptions.name }}</strong>. Try something else</p>
   </div>
 
   <div class="col-sm-4 mb-3" *ngFor="let character of characters">
