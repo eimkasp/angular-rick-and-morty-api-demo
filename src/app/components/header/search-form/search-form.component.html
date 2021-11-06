@@ -16,9 +16,27 @@ searchFromSubmit() - funkcijos pavadinimas , komponente, kuri bus kvieciama, pat
   ],
     -->
   <input type="text" class="form-control" placeholder="Type Character Name" aria-label="Search" name="searchString"
-    [(ngModel)]="searchString"
+    [(ngModel)]="searchString" />
 
-    />
+  <!-- Elementas filtravimui pagal status -->
+  <select name="status">
+    <option value="all">Status: All</option>
+    <option value="alive">Alive</option>
+    <option value="dead">Dead</option>
+    <option value="unknown">Unknown</option>
+  </select>
+
+  <!-- Elementas filtravimui pagal gender -->
+  <select name="gender">
+    <option value="all">Gender: All</option>
+    <option value="female">female</option>
+    <option value="male">male</option>
+    <option value="genderless">genderless</option>
+    <option value="unknown">unknown</option>
+  </select>
+
+
+
   <input type="submit" value="Search" class="btn btn-outline-primary" data-mdb-ripple-color="dark">
 
 </form>

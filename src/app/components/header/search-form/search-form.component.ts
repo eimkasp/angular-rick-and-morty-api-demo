@@ -10,7 +10,14 @@ export class SearchFormComponent implements OnInit {
 
   // Kintamasis i kuri issaugosime input laukelyje ivesta teksta
   public searchString : string = '';
+  public status : string = '';
 
+  /* Norint padaryti filtravima pagal kelis parametrus, turbut geriausia butu naudoti objekta, perduoti duomenims */
+  public searchOptions = {
+    name: '',
+    status: '',
+    gender: ''
+  }
 
   @Output() onFormSubmit : EventEmitter<string> =  new EventEmitter<string>();
 
