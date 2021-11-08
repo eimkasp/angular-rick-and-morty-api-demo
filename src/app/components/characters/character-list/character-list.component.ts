@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UIDataService } from 'src/app/services/uidata.service';
 import { CharacterService } from '../../../services/character.service';
 
 @Component({
@@ -23,12 +24,23 @@ export class CharacterListComponent implements OnInit {
   }
 
   // "Injectiname" character service i komponenta
-  constructor(private _characterService: CharacterService) {
+  constructor(
+    private _characterService: CharacterService,
+    private _uiDataService: UIDataService
+  ) {
 
   }
 
   ngOnInit(): void {
-    this.getCharacters();
+    // Gauname duomenis UIData service
+    this._uiDataService.getCharactersPage().subscribe((data: number) => {
+
+      // Priskiriame grazinta reiksme is dataService
+      this.page = data;
+
+      // Pasikeitus puslapiui, atnaujiname veikeju sarasa
+      this.getCharacters();
+    });
   }
 
   filterCharacters(name: string) {
@@ -57,7 +69,7 @@ export class CharacterListComponent implements OnInit {
 
           // Patikriname error status koda
           if (error.status == '404') {
-            alert("oops nothing found");
+            // alert("oops nothing found");
             console.log(error);
 
             // Priskiriame error objekta savo komponento errors masyvui,
@@ -81,33 +93,6 @@ export class CharacterListComponent implements OnInit {
         https://rickandmortyapi.com/documentation/#character-schema
         */
       );
-  }
-
-  nextPage() {
-
-    // Pridedame vieneta jei puslapio skaicius yra mazesnis uz bendra puslapiu kieki
-    if (this.page < this.charactersInfo.pages) {
-      this.page++;
-    } else {
-      alert("This is a last page");
-    }
-
-    console.log("Next page:");
-    console.log(this.page);
-
-    this.getCharacters();
-  }
-
-  previousPage() {
-
-    // Patikriname ar page reiksme nera neigiama, -1 puslapio nera
-    if (this.page > 1) {
-      this.page--;
-    }
-
-
-    // Iskvieciame characters service atnaujinti duomenis
-    this.getCharacters();
   }
 
 }

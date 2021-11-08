@@ -9,8 +9,6 @@ import { Injectable } from '@angular/core';
 
 /* Service tipo klases atsakingos uz darba su duomenimis */
 export class CharacterService {
-
-  //Konstruktorius
   // Objekto klases kintamasis, pasiekiamas visoje klaseje
   // url kintamasis, nurodo i koki API endpoint'a krepsimes
   // Dokumentacija kokie duomenys grazinami:
@@ -20,6 +18,7 @@ export class CharacterService {
   // character service api visada prasideda: 'https://rickandmortyapi.com/api/character'
 
   // Injectiname angular HttpClient
+  // Konstruktorius
   constructor(private http: HttpClient) {
     // kolkas konstruktoriuje nedarom nieko
 
@@ -65,7 +64,6 @@ export class CharacterService {
 
 
   /* TODO: Kaip atvaizduoti klaida, jei API grazina klaidinga atsakyma */
-
   // id - 1,183
   getCharacter(id: string | null) {
     let data = this.http.get(this.url + "/" + id);

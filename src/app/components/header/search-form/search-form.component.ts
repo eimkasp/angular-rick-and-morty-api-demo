@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UIDataService } from 'src/app/services/uidata.service';
 
 @Component({
   selector: 'app-search-form',
@@ -21,7 +22,7 @@ export class SearchFormComponent implements OnInit {
 
   @Output() onFormSubmit : EventEmitter<string> =  new EventEmitter<string>();
 
-  constructor() {
+  constructor(private _uiDataService : UIDataService) {
 
   }
 
@@ -30,6 +31,10 @@ export class SearchFormComponent implements OnInit {
   }
 
   searchFormSubmit() {
+
+    // Pradejus paieska, nustatome puslapiavimo kintamaji vienetui
+    this._uiDataService.setCharactersPage(1);
+
     // Istransliuoti/pranesti apie ivykusi onFormSubmit event'a kitiems komponentams
     this.onFormSubmit.emit(this.searchString);
     // alert("You are searching for" + this.searchString);
