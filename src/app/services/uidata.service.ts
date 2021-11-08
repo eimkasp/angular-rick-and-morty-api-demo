@@ -1,24 +1,31 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UIDataService {
 
-  // Private kintamasis
-  private charactersPage = 4;
+  // Behaviour Subject sukurimas
+  private pageSubject = new BehaviorSubject(1);
 
   constructor() {
-
   }
 
   // Getter
-  getCharactersPage() {
-    return this.charactersPage;
+  getCharactersPage() : BehaviorSubject<number> {
+    console.log('get character page funkcija');
+    return this.pageSubject; // Graziname kintamaji kaip BehaviorSubject
   }
 
   // Setter
   setCharactersPage(page : number) {
-    this.charactersPage = page;
+    console.log('set character page funkcija');
+
+    // Pakeiciame BehaviourSubject reiksme su .next() funkcija
+    // Iskvietus sia funkcija, sureaguos visi komponentai ir services, kurios subscribina/prenumeruoja
+    // getCharactersPage.subscribe();
+    this.pageSubject.next(page);
+    // this.charactersPage = page;
   }
 }

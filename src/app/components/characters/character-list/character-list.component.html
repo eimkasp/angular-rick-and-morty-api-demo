@@ -37,14 +37,7 @@
     <div class="col-6 text-end">
       <!-- Angular click event example -->
       <!-- Papildomai prideti mygtuka atgal, rodyti ji tik tada kai page kintamasis yra daugiau uz 1 -->
-      <button class="btn btn-secondary ml-3" (click)="previousPage()">
-        Previous Page
-      </button>
-
-      <!-- NExt Page button -->
-      <button class="btn btn-secondary" (click)="nextPage()">
-        Next Page
-      </button>
+      <app-pagination></app-pagination>
     </div>
   </div>
 
@@ -61,4 +54,9 @@
     <!-- Pakeisime i <app-character-card [character]="character"> -->
     <app-character-card [character]="character"></app-character-card>
   </div>
+</div>
+
+<div class="footer-pagination text-center">
+  <app-pagination></app-pagination>
+
 </div>
