@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CharacterService } from 'src/app/services/character.service';
 import { UIDataService } from 'src/app/services/uidata.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { UIDataService } from 'src/app/services/uidata.service';
 export class PaginationComponent implements OnInit {
 
   private page = 1;
-  constructor(private _uiDataService : UIDataService) { }
+  @Input() public pages : any;
+  constructor(private _uiDataService: UIDataService,
+    private _characterService: CharacterService
+  ) { }
 
   ngOnInit(): void {
     this._uiDataService.getCharactersPage().subscribe((data: number) => {
@@ -20,12 +24,16 @@ export class PaginationComponent implements OnInit {
 
   nextPage() {
     // Pridedame vieneta jei puslapio skaicius yra mazesnis uz bendra puslapiu kieki
-    this.page++;
+    console.log(this.pages);
+    if (this.pages > this.page) {
+      this.page++;
       // Nustatome duomenis UIData service
-    this._uiDataService.setCharactersPage(this.page);
+      this._uiDataService.setCharactersPage(this.page);
 
-    console.log("Next page:");
-    console.log(this.page);
+      console.log("Next page:");
+      console.log(this.page);
+    }
+
 
   }
 

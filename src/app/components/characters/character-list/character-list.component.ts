@@ -69,7 +69,7 @@ export class CharacterListComponent implements OnInit {
 
           // Patikriname error status koda
           if (error.status == '404') {
-            alert("oops nothing found");
+            // alert("oops nothing found");
             console.log(error);
 
             // Priskiriame error objekta savo komponento errors masyvui,
