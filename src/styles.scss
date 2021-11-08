@@ -5,6 +5,11 @@
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
 
 
+
+
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+
 /* Nustatyti standartines boostrap spalvas */
 $theme-colors: (
   "primary": #28a745,
@@ -13,4 +18,12 @@ $theme-colors: (
   'danger': yellow
 );
 
-@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+/* SCSS kintamuju sukurimas */
+$manoSpalva : #28a745;
+
+
+/* SCSS kintamuju panaudojimas */
+.mano-klase {
+  background: $manoSpalva;
+  color: $manoSpalva;
+}
