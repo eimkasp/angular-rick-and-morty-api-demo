@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UIDataService } from 'src/app/services/uidata.service';
 import { CharacterService } from '../../../services/character.service';
 
 @Component({
@@ -23,11 +24,17 @@ export class CharacterListComponent implements OnInit {
   }
 
   // "Injectiname" character service i komponenta
-  constructor(private _characterService: CharacterService) {
+  constructor(
+    private _characterService: CharacterService,
+    private _uiDataService: UIDataService
+    ) {
 
   }
 
   ngOnInit(): void {
+
+    // Gauname duomenis UIData service
+    this.page = this._uiDataService.getCharactersPage();
     this.getCharacters();
   }
 
@@ -88,6 +95,8 @@ export class CharacterListComponent implements OnInit {
     // Pridedame vieneta jei puslapio skaicius yra mazesnis uz bendra puslapiu kieki
     if (this.page < this.charactersInfo.pages) {
       this.page++;
+      // Nustatome duomenis UIData service
+      this._uiDataService.setCharactersPage(this.page);
     } else {
       alert("This is a last page");
     }
@@ -103,6 +112,8 @@ export class CharacterListComponent implements OnInit {
     // Patikriname ar page reiksme nera neigiama, -1 puslapio nera
     if (this.page > 1) {
       this.page--;
+      // Nustatome duomenis UIData service
+      this._uiDataService.setCharactersPage(this.page);
     }
 
 

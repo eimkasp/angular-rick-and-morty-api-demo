@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UIDataService {
 
   // Private kintamasis
-  private charactersPage = 1;
+  private charactersPage = 4;
 
   constructor() {
 

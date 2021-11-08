@@ -34,7 +34,7 @@ import { CharacterCardComponent } from './components/characters/character-card/c
     EpisodesListComponent,
     SearchFormComponent,
     EpisodeDetailsComponent,
-    CharacterCardComponent
+    CharacterCardComponent,
   ],
   imports: [
     BrowserModule,
