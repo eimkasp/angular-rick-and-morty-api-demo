@@ -3,5 +3,14 @@
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 @import '~@fortawesome/fontawesome-free/scss/regular.scss';
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
- 
+
+
+/* Nustatyti standartines boostrap spalvas */
+$theme-colors: (
+  "primary": #28a745,
+  "secondary": #ff4136,
+  "success":  #000000,
+  'danger': yellow
+);
+
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
